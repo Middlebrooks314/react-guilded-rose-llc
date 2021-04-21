@@ -15,6 +15,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "pretest": "eslint --ignore-path .gitignore . --ignore-pattern App.js",
     "test": "jest",
     "eject": "react-scripts eject"
   },
