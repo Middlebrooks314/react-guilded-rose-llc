@@ -19,5 +19,8 @@ module.exports = {
     'react'
   ],
   rules: {
+    'react/prop-types': 'off',
+    'react/jsx-uses-react': 'error',
+    'no-unused-vars': 'off'
   }
 }
