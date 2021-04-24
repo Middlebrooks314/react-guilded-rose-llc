@@ -1,34 +1,43 @@
 import React, { Component } from 'react'
-import './App.css'
-import Welcome from './components/Welcome.js'
+import Welcome from './components/welcome/welcome.js'
 
 class App extends Component {
   constructor (props) {
     super(props)
+    this.apiHandler = props.apiHandler
 
     this.state = {
-      loading: true,
-      welcomeString: ''
+      isLoaded: props.isLoaded || false,
+      text: '',
+      error: null
     }
   }
 
   componentDidMount () {
-    fetch('https://safe-wave-09726.herokuapp.com/api/v1/welcome', {
-      headers: {
-        'Content-Type': 'application/json',
-        Accept: 'application/json'
-      }
+    this.getWelcomeString()
+  }
+
+  getWelcomeString () {
+    this.apiHandler.getWelcomeString().then(text => {
+      this.setState({
+        text: text.text,
+        error: text.error,
+        isLoaded: true
+      })
     })
-      .then(response => response.text())
-      .then(text => this.setState({ welcomeString: text, loading: false }))
   }
 
   render () {
-    return (
-      <div className="App">
-        {this.state.loading ? <h4>loading</h4> : <Welcome welcomeString={this.state.welcomeString}/>}
-      </div>
-    )
+    const { isLoaded, error, text } = this.state
+    if (error) {
+      return <div data-testid="error-message">{error}</div>
+    } else if (!isLoaded) {
+      return <div data-testid="loading-message">Loading...</div>
+    } else {
+      return (
+          <Welcome welcomeString={text}/>
+      )
+    }
   }
 }
 
