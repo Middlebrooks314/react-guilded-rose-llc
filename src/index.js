@@ -6,6 +6,7 @@ import reportWebVitals from './reportWebVitals'
 import ApiHandler from '.gi/apiHandler'
 const apiHandler = new ApiHandler()
 
+
 ReactDOM.render(
   <React.StrictMode>
     <App apiHandler={apiHandler} />
