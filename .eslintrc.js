@@ -2,7 +2,9 @@ module.exports = {
   env: {
     browser: true,
     es2021: true,
-    jest: true
+    jest: true,
+    node: 1
+
   },
   extends: [
     'plugin:react/recommended',
@@ -21,6 +23,7 @@ module.exports = {
   rules: {
     'react/prop-types': 'off',
     'react/jsx-uses-react': 'error',
-    'no-unused-vars': 'off'
+    'no-unused-vars': 'off',
+    quotes: [2, 'single', { avoidEscape: true, allowTemplateLiterals: true }]
   }
 }
