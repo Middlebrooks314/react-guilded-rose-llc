@@ -1,25 +1,44 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react'
+import Welcome from './components/welcome/welcome.js'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  constructor (props) {
+    super(props)
+    this.apiHandler = props.apiHandler
+
+    this.state = {
+      isLoaded: props.isLoaded || false,
+      text: '',
+      error: null
+    }
+  }
+
+  componentDidMount () {
+    this.getWelcomeString()
+  }
+
+  getWelcomeString () {
+    this.apiHandler.getWelcomeString().then(text => {
+      this.setState({
+        text: text.text,
+        error: text.error,
+        isLoaded: true
+      })
+    })
+  }
+
+  render () {
+    const { isLoaded, error, text } = this.state
+    if (error) {
+      return <div data-testid="error-message">{error}</div>
+    } else if (!isLoaded) {
+      return <div data-testid="loading-message">Loading...</div>
+    } else {
+      return (
+          <Welcome welcomeString={text}/>
+      )
+    }
+  }
 }
 
-export default App;
+export default App

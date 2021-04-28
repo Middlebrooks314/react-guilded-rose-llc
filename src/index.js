@@ -3,10 +3,12 @@ import ReactDOM from 'react-dom'
 import './index.css'
 import App from './App'
 import reportWebVitals from './reportWebVitals'
+import ApiHandler from '.gi/apiHandler'
+const apiHandler = new ApiHandler()
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <App apiHandler={apiHandler} />
   </React.StrictMode>,
   document.getElementById('root')
 )
