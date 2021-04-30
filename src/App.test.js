@@ -30,4 +30,11 @@ describe('App', () => {
       screen.getByTestId('error-message')
     ).toBeInTheDocument()
   })
+  it('renders an items table', async () => {
+    const mockApiHandler = new MockApiHandler('Welcome', null)
+    await render(<App apiHandler={ mockApiHandler } isLoaded={ true }/>)
+    expect(
+      screen.getByTestId('items-table')
+    ).toBeInTheDocument()
+  })
 })
