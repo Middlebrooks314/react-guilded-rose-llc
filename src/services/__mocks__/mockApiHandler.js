@@ -1,5 +1,4 @@
-const storeItems = {
-  items:
+const storeItems = 
 [
   {
     id: 1,
@@ -30,9 +29,8 @@ const storeItems = {
     name: "Ipsum",
     sellIn: 4,
     quality: 16,
-  },
-],
-}
+  }
+]
 class MockApiHandler {
   constructor(text, error, items) {
     this.text = text
@@ -45,6 +43,7 @@ class MockApiHandler {
   }
 
   async getStoreItems() {
+    console.log({ items: this.items, error: this.error })
     return ({ items: this.items, error: this.error })
   }
 }

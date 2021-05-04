@@ -5,7 +5,7 @@ const ItemsIndex = (props) => {
   return (
     <div>
 
-      {items
+      {items.length != 0
         ? (
   <table data-testid="items-table">
     <thead>

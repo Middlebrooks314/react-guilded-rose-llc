@@ -6,7 +6,7 @@ import MockApiHandler from "../../services/__mocks__/mockApiHandler"
 
 describe("ItemsIndex", () => {
   it("renders a no items message when there are no items available", async () => {
-    const mockApiHandler = new MockApiHandler("Welcome to the Gilded Rose LLC store!", null, { undefined })
+    const mockApiHandler = new MockApiHandler("Welcome to the Gilded Rose LLC store!", null, [])
     await render(<App apiHandler={mockApiHandler} isLoaded />)
     expect(
       screen.getByTestId("no-items-message"),
@@ -61,13 +61,11 @@ describe("ItemsIndex", () => {
     expect(itemNames.length).toEqual(5)
   })
   it("renders a table with a single item", async () => {
-    const mockApiHandler = new MockApiHandler("Welcome", null,
+    const items =[
       {
-        items: [
-          {
-            id: 1, name: "Aged Brie", sellIn: 3, quality: 20,
-          }],
-      })
+        id: 1, name: "Aged Brie", sellIn: 3, quality: 20,
+      }]
+      const mockApiHandler = new MockApiHandler("Welcome", null, items)
     await render(<App apiHandler={mockApiHandler} isLoaded />)
     expect(
       screen.getByTestId("items-table"),
@@ -77,38 +75,36 @@ describe("ItemsIndex", () => {
     ).toBeInTheDocument()
   })
   it("renders a table with multiple items", async () => {
-    const mockApiHandler = new MockApiHandler("Welcome", null,
+    const items = [
       {
-        items: [
-          {
-            id: 1, name: "Aged Brie", sellIn: 3, quality: 20,
-          },
-          {
-            id: 2,
-            name: "Foo",
-            sellIn: 25,
-            quality: 2,
-          },
-          {
-            id: 3,
-            name: "Bar",
-            sellIn: 22,
-            quality: 10,
-          },
-          {
-            id: 4,
-            name: "Lorem",
-            sellIn: 2,
-            quality: 5,
-          },
-          {
-            id: 5,
-            name: "Ipsum",
-            sellIn: 4,
-            quality: 16,
-          },
-        ],
-      })
+        id: 1, name: "Aged Brie", sellIn: 3, quality: 20,
+      },
+      {
+        id: 2,
+        name: "Foo",
+        sellIn: 25,
+        quality: 2,
+      },
+      {
+        id: 3,
+        name: "Bar",
+        sellIn: 22,
+        quality: 10,
+      },
+      {
+        id: 4,
+        name: "Lorem",
+        sellIn: 2,
+        quality: 5,
+      },
+      {
+        id: 5,
+        name: "Ipsum",
+        sellIn: 4,
+        quality: 16,
+      },
+    ]
+    const mockApiHandler = new MockApiHandler("Welcome", null, items)
     await render(<App apiHandler={mockApiHandler} isLoaded />)
     expect(
       screen.getByTestId("items-table"),
