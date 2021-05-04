@@ -12,7 +12,6 @@ class ApiHandler {
     const response = await fetch(`${apiURL}/items`)
     const json = await response.json()
     const error = await response.error
-    console.log({ items: json, error })
     return ({ items: json, error })
   }
 }

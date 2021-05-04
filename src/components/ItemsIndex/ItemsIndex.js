@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 
 const ItemsIndex = (props) => {
-  const { items } = props.items
+  const { items } = props
   return (
     <div>
 
