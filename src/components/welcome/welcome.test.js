@@ -11,7 +11,7 @@ describe("Welcome", () => {
   })
   it("renders welcome message", async () => {
     const mockApiHandler = new MockApiHandler("Welcome to the Gilded Rose LLC store!", null)
-    await render(<App apiHandler={mockApiHandler} isLoaded />)
+    await render(<App apiHandler={mockApiHandler} />)
     expect(
       screen.getByText("Welcome to the Gilded Rose LLC store!"),
     ).toBeInTheDocument()
