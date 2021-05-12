@@ -1,9 +1,12 @@
 import { useFetch } from "react-async"
-const apiURL = "https://safe-wave-09726.herokuapp.com/api/v1"
 
 class ApiHandler {
+  constructor(props) {
+    this.url = props.url
+  }
+
   getWelcomeString() {
-    const { data, error } = useFetch("https://safe-wave-09726.herokuapp.com/api/v1/welcome", {
+    const { data, error } = useFetch(`${this.url}/welcome`, {
       headers: { accept: "application/json" }
     })
     if (error){
@@ -15,7 +18,7 @@ class ApiHandler {
   }
 
   getStoreItems() {
-    const { data, error } = useFetch("https://floating-spire-59497.herokuapp.com/api/v1/items", {
+    const { data, error } = useFetch(`${this.url}/items`, {
       headers: { accept: "application/json" }
     })
     if (error) return error.message
@@ -23,7 +26,7 @@ class ApiHandler {
   }
 
   getItemData(itemId) {
-    const { data } = useFetch(`https://floating-spire-59497.herokuapp.com/api/v1/items/${itemId}`, {
+    const { data } = useFetch(`${this.url}/items/${itemId}`, {
       headers: { accept: "application/json" }
     })
     return data

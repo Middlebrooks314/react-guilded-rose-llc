@@ -5,7 +5,8 @@ import App from "./App"
 import reportWebVitals from "./reportWebVitals"
 import ApiHandler from "./apiHandler"
 
-const apiHandler = new ApiHandler()
+const url = process.env.REACT_APP_API_URL
+const apiHandler = new ApiHandler({url})
 
 ReactDOM.render(
   <React.StrictMode>
