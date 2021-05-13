@@ -53,10 +53,18 @@ class MockApiHandler {
   }
 
   getItemData(itemId) {
-    console.log(itemId)
     const item = storeItems.find(item => item.id == itemId)
-    console.log(item)
     return item
+  }
+
+  handleSubmit(event, formData, history){
+    event.preventDefault()
+    this.postNewItem(formData, history)
+    console.log('submitted')
+  }
+
+  postNewItem(formData, history) {
+    return (formData, history)
   }
 }
 export default MockApiHandler

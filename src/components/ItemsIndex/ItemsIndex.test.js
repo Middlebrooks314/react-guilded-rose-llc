@@ -105,7 +105,7 @@ describe("ItemsIndex", () => {
       },
     ]
     const mockApiHandler = new MockApiHandler("Welcome", null, items)
-    await render(<App apiHandler={mockApiHandler} isLoaded />)
+    await render(<App apiHandler={mockApiHandler}/>)
     expect(
       screen.getByTestId("items-table"),
     ).toBeInTheDocument()

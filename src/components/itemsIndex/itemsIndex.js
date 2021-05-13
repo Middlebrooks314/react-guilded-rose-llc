@@ -17,9 +17,9 @@ const ItemsIndex = (props) => {
       </tr>
     </thead>
     <tbody>
-      {items.map((item, index) => (
+      {items.map((item) => (
         <tr key={item.id}>
-          <td data-testid="item-name"><Link to={`/items/${index + 1}`}>{item.name}</Link></td>
+          <td data-testid="item-name"><Link to={`/items/${item.id}`}>{item.name}</Link></td>
           <td data-testid="item-sellIn">{item.sell_in}</td>
           <td data-testid="item-quality">{item.quality}</td>
         </tr>
