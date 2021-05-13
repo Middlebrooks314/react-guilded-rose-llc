@@ -5,6 +5,10 @@ module.exports = {
         "es2021": true,
         "jest": true
     },
+    "globals": {
+        "Promise": "off",
+        "process": true
+    },
     "extends": [
         "eslint:recommended",
         "plugin:react/recommended"
@@ -20,9 +24,14 @@ module.exports = {
         "react"
     ],
     "rules": {
-        'react/prop-types': 'off',
-        'react/jsx-uses-react': 'error',
-        'no-unused-vars': 'off',
+        "react/prop-types": "off",
+        "react/jsx-uses-react": "error",
+        "no-unused-vars": "off",
+    },
+    "settings": {
+        "react": {
+            "version": "detect"
+        }
     }
     
 };
