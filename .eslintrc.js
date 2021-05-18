@@ -21,12 +21,14 @@ module.exports = {
         "sourceType": "module"
     },
     "plugins": [
-        "react"
+        "react",
+        "react-hooks"
     ],
     "rules": {
         "react/prop-types": "off",
         "react/jsx-uses-react": "error",
         "no-unused-vars": "off",
+        "jsx-quotes": [2, "prefer-double"]
     },
     "settings": {
         "react": {

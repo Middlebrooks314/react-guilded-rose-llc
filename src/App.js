@@ -1,15 +1,21 @@
 import React from "react"
 import WelcomePage from "./components/welcomePage/welcomePage.js"
 import ItemPage from "./components/itemPage/itemPage"
+import ItemForm from "./components/itemForm/itemForm.js"
 import { Link, BrowserRouter as Router, Route } from 'react-router-dom'
+import { Switch } from 'react-router-dom'
 
 const App = (props) => {
   const { apiHandler } = props
   return (
     <Router>
       <Link to="/">Home</Link>
-      <Route exact path="/" component={() => <WelcomePage apiHandler={apiHandler} />} />
-      <Route exact path="/items/:itemId" render={props => <ItemPage apiHandler={apiHandler} {...props} />} />
+      <Link to="/items/new">Add Item</Link>
+      <Switch>
+        <Route exact path="/" component={() => <WelcomePage apiHandler={apiHandler} />} />
+        <Route path="/items/new" component={() => <ItemForm apiHandler={apiHandler}/>} />
+        <Route path="/items/:itemId" render={props => <ItemPage apiHandler={apiHandler} {...props} />} />
+      </Switch>
     </Router>
   )
 }

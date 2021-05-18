@@ -1,6 +1,6 @@
-import React from "react"
-import Welcome from "../welcome/welcome"
-import ItemsIndex from "../itemsIndex/itemsIndex"
+import React from 'react'
+import Welcome from '../welcome/welcome'
+import ItemsIndex from '../itemsIndex/itemsIndex'
 
 const WelcomePage = (props) => {
   const { apiHandler } = props 
