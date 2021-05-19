@@ -3,31 +3,31 @@ const storeItems =
   {
     id: 1,
     name: "Aged Brie",
-    sell_in: 3,
+    sellIn: 3,
     quality: 20,
   },
   {
     id: 2,
     name: "Foo",
-    sell_in: 25,
+    sellIn: 25,
     quality: 2,
   },
   {
     id: 3,
     name: "Bar",
-    sell_in: 22,
+    sellIn: 22,
     quality: 10,
   },
   {
     id: 4,
     name: "Lorem",
-    sell_in: 2,
+    sellIin: 2,
     quality: 5,
   },
   {
     id: 5,
     name: "Ipsum",
-    sell_in: 4,
+    sellIn: 4,
     quality: 16,
   }
 ]
