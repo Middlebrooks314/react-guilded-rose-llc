@@ -17,7 +17,7 @@ describe("ItemPage", () => {
       screen.getByTestId("item-name"),
     ).toBeInTheDocument()
     expect(
-      screen.getByTestId("item-sell_in"),
+      screen.getByTestId("item-sellIn"),
     ).toBeInTheDocument()
     expect(
       screen.getByTestId("item-quality"),

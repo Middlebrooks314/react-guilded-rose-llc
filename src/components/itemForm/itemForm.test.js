@@ -25,7 +25,7 @@ describe("ItemForm", () => {
       screen.getByTestId("name-field"),
     ).toBeInTheDocument()
     expect(
-      screen.getByTestId("sell_in-field"),
+      screen.getByTestId("sellIn-field"),
     ).toBeInTheDocument()
     expect(
       screen.getByTestId("quality-field"),

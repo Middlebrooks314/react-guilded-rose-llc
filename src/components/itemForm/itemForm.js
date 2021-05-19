@@ -5,13 +5,13 @@ const ItemForm = (props) => {
   const { apiHandler }= props
   const history = useHistory()
   const [name, setName] = useState('')
-  const [sell_in, setSellIn] = useState('')
+  const [sellIn, setSellIn] = useState('')
   const [quality, setQuality] = useState('')
 
 
   let formData = {
     name: name,
-    sell_in: sell_in,
+    sellIn: sellIn,
     quality: quality
   }
 
@@ -39,9 +39,9 @@ const ItemForm = (props) => {
         <input
         type="number"
         min="1"
-        name="sell_in"
-        data-testid="sell_in-field"
-        value={sell_in}
+        name="sellIn"
+        data-testid="sellIn-field"
+        value={sellIn}
         onChange={e => setSellIn(e.target.value)}
         required
         />
