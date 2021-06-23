@@ -6,7 +6,7 @@ module.exports = {
         "jest": true
     },
     "globals": {
-        "Promise": "off",
+        "Promise": true,
         "process": true
     },
     "extends": [
