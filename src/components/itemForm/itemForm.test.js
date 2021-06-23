@@ -36,7 +36,7 @@ describe("ItemForm", () => {
   })
     test('it submits the form on submit', () => {
       const mockApiHandler = new MockApiHandler("Welcome to the Gilded Rose LLC store!", null)
-      mockApiHandler.postNewItem = jest.fn()
+      mockApiHandler.postNewItem = jest.fn().mockReturnValue(Promise.resolve({}))
       render(<ItemForm apiHandler={mockApiHandler}/>)
       const submitButton = screen.getByTestId('submit-button')
 
@@ -45,5 +45,3 @@ describe("ItemForm", () => {
       expect(mockApiHandler.postNewItem).toHaveBeenCalled()
     })
   })
-
-

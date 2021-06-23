@@ -17,7 +17,14 @@ const ItemForm = (props) => {
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    apiHandler.postNewItem(formData, history)
+    apiHandler.postNewItem(formData)
+      .then(response => response.json())
+      .then((item) => {
+        history.replace(`/items/${item.id}`)
+      })
+      .catch(error => {
+        return <h3>{error.message}</h3>
+      })
   }
   
   return (
