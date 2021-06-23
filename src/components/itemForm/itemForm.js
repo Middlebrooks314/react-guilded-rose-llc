@@ -15,11 +15,15 @@ const ItemForm = (props) => {
     quality: quality
   }
 
+  const handleSubmit = (event) => {
+    event.preventDefault()
+    apiHandler.postNewItem(formData, history)
+  }
   
   return (
     <form
     data-testid="new-item-form"
-    onSubmit={(event) => {apiHandler.handleSubmit(event, formData, history)}}
+    onSubmit={handleSubmit}
     >
     <br/>
       <label>

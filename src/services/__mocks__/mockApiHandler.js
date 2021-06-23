@@ -57,12 +57,6 @@ class MockApiHandler {
     return item
   }
 
-  handleSubmit(event, formData, history){
-    event.preventDefault()
-    this.postNewItem(formData, history)
-    console.log('submitted')
-  }
-
   postNewItem(formData, history) {
     return (formData, history)
   }
