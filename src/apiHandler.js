@@ -33,11 +33,6 @@ class ApiHandler {
     return data
   }
 
-  handleSubmit(event, formData, history){
-    event.preventDefault()
-    this.postNewItem(formData, history)
-  }
-
   async postNewItem(formData, history) {
     const requestOptions = {
       method: 'POST',
