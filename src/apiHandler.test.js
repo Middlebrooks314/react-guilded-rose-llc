@@ -26,9 +26,9 @@ test("postNewItem posts to the items endpoint with the correct request options",
   const expectedRequestOptions = {
     body: "{\"name\":\"hello\",\"sellIn\":1,\"quality\":2}",
     headers: {
-    'Content-Type': 'application/json',
-    'Authorization': credentials
-  },
+      'Content-Type': 'application/json',
+      'Authorization': credentials
+    },
     method: "POST"
   }
 
