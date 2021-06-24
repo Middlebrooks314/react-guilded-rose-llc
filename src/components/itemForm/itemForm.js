@@ -8,7 +8,6 @@ const ItemForm = (props) => {
   const [sellIn, setSellIn] = useState('')
   const [quality, setQuality] = useState('')
 
-
   let formData = {
     name: name,
     sellIn: sellIn,
@@ -17,7 +16,14 @@ const ItemForm = (props) => {
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    apiHandler.postNewItem(formData, history)
+    apiHandler.postNewItem(formData)
+      .then(response => response.json())
+      .then((item) => {
+        history.replace(`/items/${item.id}`)
+      })
+      .catch((error) => {
+        console.error(error.message)
+      })
   }
   
   return (

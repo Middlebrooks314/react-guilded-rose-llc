@@ -57,8 +57,8 @@ class MockApiHandler {
     return item
   }
 
-  postNewItem(formData, history) {
-    return (formData, history)
+  postNewItem(formData) {
+    return formData
   }
 }
 export default MockApiHandler

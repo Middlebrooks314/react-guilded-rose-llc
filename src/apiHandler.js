@@ -33,20 +33,13 @@ class ApiHandler {
     return data
   }
 
-  async postNewItem(formData, history) {
+  postNewItem(formData) {
     const requestOptions = {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(formData)
   };
-    await fetch(`${this.url}/items`, requestOptions)
-        .then(response => response.json())
-        .then((item) => {
-          history.replace(`/items/${item.id}`)
-        })
-        .catch(error => {
-          return <h3>{error.message}</h3>
-        })
+    return fetch(`${this.url}/items`, requestOptions)
   }
 }
 export default ApiHandler
