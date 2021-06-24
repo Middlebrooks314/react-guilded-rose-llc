@@ -8,7 +8,6 @@ const ItemForm = (props) => {
   const [sellIn, setSellIn] = useState('')
   const [quality, setQuality] = useState('')
 
-
   let formData = {
     name: name,
     sellIn: sellIn,
@@ -21,9 +20,6 @@ const ItemForm = (props) => {
       .then(response => response.json())
       .then((item) => {
         history.replace(`/items/${item.id}`)
-      })
-      .catch(error => {
-        return <h3>{error.message}</h3>
       })
   }
   

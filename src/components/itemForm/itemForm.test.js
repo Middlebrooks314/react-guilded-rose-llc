@@ -1,11 +1,10 @@
 import React from "react"
-import { render, screen, fireEvent, waitFor } from "@testing-library/react"
+import { render, screen, waitFor } from "@testing-library/react"
 import userEvent from '@testing-library/user-event'
-import "@testing-library/jest-dom/extend-expect"
-import App from "../../App"
-import MockApiHandler from "../../services/__mocks__/mockApiHandler"
+import { createMemoryHistory } from 'history'
+import { Router } from 'react-router-dom'
 import ItemForm from "./itemForm"
-
+import MockApiHandler from "../../services/__mocks__/mockApiHandler"
 
 describe("ItemForm", () => {
   test("renders ItemForm component", () => {
@@ -36,12 +35,40 @@ describe("ItemForm", () => {
   })
     test('it submits the form on submit', () => {
       const mockApiHandler = new MockApiHandler("Welcome to the Gilded Rose LLC store!", null)
-      mockApiHandler.postNewItem = jest.fn().mockReturnValue(Promise.resolve({}))
-      render(<ItemForm apiHandler={mockApiHandler}/>)
+      const history = createMemoryHistory()
+      mockApiHandler.postNewItem = jest.fn(() => Promise.resolve({
+        json: () => Promise.resolve({ id: 1 })
+      }))
+
+      render(
+        <Router history={history}>
+          <ItemForm apiHandler={mockApiHandler}/>
+        </Router>
+      )
       const submitButton = screen.getByTestId('submit-button')
 
       userEvent.click(submitButton)
 
       expect(mockApiHandler.postNewItem).toHaveBeenCalled()
+    })
+
+    test('the history updates to the new item path on submit', async () => {
+      const mockApiHandler = new MockApiHandler("Welcome to the Gilded Rose LLC store!", null)
+      const item = { id: 1 }
+      const history = createMemoryHistory()
+      mockApiHandler.postNewItem = jest.fn(() => Promise.resolve({
+        json: () => Promise.resolve(item)
+      }))
+
+      render(
+        <Router history={history}>
+          <ItemForm apiHandler={mockApiHandler}/>
+        </Router>
+      )
+      const submitButton = screen.getByTestId('submit-button')
+
+      userEvent.click(submitButton)
+
+      await waitFor(() => expect(history.location.pathname).toBe(`/items/${item.id}`))
     })
   })
