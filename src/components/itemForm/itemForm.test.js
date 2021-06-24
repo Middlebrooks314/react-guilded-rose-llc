@@ -7,6 +7,10 @@ import ItemForm from "./itemForm"
 import MockApiHandler from "../../services/__mocks__/mockApiHandler"
 
 describe("ItemForm", () => {
+  beforeEach(() => {
+    jest.clearAllMocks();
+  })
+
   test("renders ItemForm component", () => {
     render(<ItemForm />)
   })
@@ -70,5 +74,27 @@ describe("ItemForm", () => {
       userEvent.click(submitButton)
 
       await waitFor(() => expect(history.location.pathname).toBe(`/items/${item.id}`))
+    })
+
+    test('catches when handleSubmit throws an exception', async () => {
+      const mockApiHandler = new MockApiHandler("Welcome to the Gilded Rose LLC store!", null)
+      const history = createMemoryHistory()
+      const error = new Error("Nope")
+      mockApiHandler.postNewItem = jest.fn(() => Promise.reject(
+        error
+      ))
+
+      window.console.error = jest.fn()
+
+      render(
+        <Router history={history}>
+          <ItemForm apiHandler={mockApiHandler}/>
+        </Router>
+      )
+      const submitButton = screen.getByTestId('submit-button')
+
+      userEvent.click(submitButton)
+
+      await waitFor(() => expect(window.console.error).toHaveBeenLastCalledWith(error.message))
     })
   })

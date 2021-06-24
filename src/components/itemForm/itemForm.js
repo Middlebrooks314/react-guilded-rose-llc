@@ -21,6 +21,9 @@ const ItemForm = (props) => {
       .then((item) => {
         history.replace(`/items/${item.id}`)
       })
+      .catch((error) => {
+        console.error(error.message)
+      })
   }
   
   return (
