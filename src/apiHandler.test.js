@@ -1,16 +1,12 @@
 import ApiHandler from "./apiHandler"
 
-global.fetch = jest.fn(() =>
-  Promise.resolve({
-    json: () => Promise.resolve({})
-  })
-)
-
 beforeEach(() => {
-  fetch.mockClear()
+  fetch.resetMocks()
 })
 
 test("postNewItem posts to the items endpoint with the correct request options", () => {
+  fetch.mockResponseOnce({})
+
   const url = "foo.com"
   const credentials = process.env.REACT_APP_USER_AUTH_CREDENTIALS
   const apiHandler = new ApiHandler({url})
