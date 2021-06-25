@@ -6,6 +6,7 @@ module.exports = {
         "jest": true
     },
     "globals": {
+        "global": true,
         "Promise": true,
         "process": true
     },

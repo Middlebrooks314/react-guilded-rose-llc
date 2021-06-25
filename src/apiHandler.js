@@ -36,7 +36,10 @@ class ApiHandler {
   postNewItem(formData) {
     const requestOptions = {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': process.env.REACT_APP_USER_AUTH_CREDENTIALS
+      },
       body: JSON.stringify(formData)
   };
     return fetch(`${this.url}/items`, requestOptions)
