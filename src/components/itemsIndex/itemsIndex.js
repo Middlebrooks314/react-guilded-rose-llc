@@ -8,7 +8,7 @@ const ItemsIndex = (props) => {
     <table data-testid="items-table" className="table">
     <thead>
       <tr>
-        <th data-testid="item-header">Items</th>
+        <th data-testid="item-header" id="item-header" colSpan="3">Items</th>
       </tr>
       <tr>
         <th data-testid="item-name-header">Item Name</th>
