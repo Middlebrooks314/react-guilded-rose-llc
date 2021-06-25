@@ -32,7 +32,7 @@ const ItemForm = (props) => {
     onSubmit={handleSubmit}
     >
     <br/>
-      <label>
+      <label id="item-name-input">
         Name:
         <input
         type="text"
@@ -44,7 +44,7 @@ const ItemForm = (props) => {
         />
       </label>
       <br/>
-      <label>
+      <label id="item-sellIn-input">
         Sell In:
         <input
         type="number"
@@ -57,7 +57,7 @@ const ItemForm = (props) => {
         />
       </label>
       <br/>
-      <label>
+      <label id="item-quality-input">
         Quality:
         <input 
         type="number"

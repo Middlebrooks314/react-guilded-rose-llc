@@ -4,6 +4,7 @@ body {
   padding: 50px;
   font-family: Arial;
 }
+
 table, th, td {
   border: 1px solid black;
   padding: 20px;
@@ -22,10 +23,30 @@ h1 {
   font-size: larger;
 }
 
-#new-item-link{
+#new-item-link {
   padding: 10px;
 }
 
-#home-link{
+#home-link {
   padding: 10px;
+}
+
+input:focus {
+  border: 3px solid #555;
+  border-radius:10px;
+}
+
+input[type=button], input[type=submit] {
+  background-color: blue;
+  border: none;
+  color: white;
+  margin: 4px 2px 0 55px;
+}
+
+input {
+    width: 20%;
+    padding: 8px 15px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border-radius:10px;
 }
