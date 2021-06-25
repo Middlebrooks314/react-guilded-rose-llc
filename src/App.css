@@ -13,6 +13,10 @@ table, th, td {
   margin-right: auto;
 }
 
+h1 {
+  text-align: center;
+}
+
 #item-header {
   text-align: center;
   font-size: larger;
