@@ -3,7 +3,6 @@ body {
   color: black;
   padding: 50px;
   font-family: Arial;
-  text-align: center;
 }
 table, th, td {
   border: 1px solid black;
@@ -13,7 +12,16 @@ table, th, td {
   margin-left: auto;
   margin-right: auto;
 }
+
 #item-header {
   text-align: center;
   font-size: larger;
+}
+
+#new-item-link{
+  padding: 10px;
+}
+
+#home-link{
+  padding: 10px;
 }

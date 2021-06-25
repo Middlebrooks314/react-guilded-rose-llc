@@ -9,8 +9,8 @@ const App = (props) => {
   const { apiHandler } = props
   return (
     <Router>
-      <Link to="/">Home</Link>
-      <Link to="/items/new">Add Item</Link>
+      <Link to="/" id="home-link">Home</Link>
+      <Link to="/items/new" id="new-item-link">Add Item</Link>
       <Switch>
         <Route exact path="/" component={() => <WelcomePage apiHandler={apiHandler} />} />
         <Route path="/items/new" component={() => <ItemForm apiHandler={apiHandler}/>} />
